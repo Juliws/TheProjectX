@@ -83,7 +83,7 @@ public class MoverPersonaje : MonoBehaviour
         }
         else
         {
-            enelSuelo = true;
+            //enelSuelo = false;
             anim.SetBool("Jump", false);
         }
     }
