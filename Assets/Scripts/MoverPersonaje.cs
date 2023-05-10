@@ -26,7 +26,7 @@ public class MoverPersonaje : MonoBehaviour
 
     private void Start()
     {
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         playerRb = GetComponent<Rigidbody>();
         agachado = GetComponent<bool>();
     }
@@ -41,12 +41,12 @@ public class MoverPersonaje : MonoBehaviour
     private void MoverPlayer()
     {
         x = Input.GetAxis("Horizontal");
-        y = Input.GetAxis("Vertical");
+        //y = Input.GetAxis("Vertical");
 
-        transform.Translate(x * Time.deltaTime * velocidadMovimiento, 0, 0);
+        transform.Translate(0, 0, x * Time.deltaTime * velocidadMovimiento);
 
+        anim.SetFloat("VelX", x);
         Agachado();
-        //anim.SetFloat("VelX", x);
         //anim.SetFloat("VelY", y);
     }
 
@@ -79,6 +79,12 @@ public class MoverPersonaje : MonoBehaviour
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             enelSuelo = false;
+            anim.SetBool("Jump", true);
+        }
+        else
+        {
+            enelSuelo = true;
+            anim.SetBool("Jump", false);
         }
     }
 
@@ -88,6 +94,7 @@ public class MoverPersonaje : MonoBehaviour
         {
             agachado = true;
             colliderAgachado.enabled = true;
+            anim.SetBool("Crouch", true);
             colliderDePie.enabled = false;
             Debug.Log("Agachado");
         }
@@ -96,6 +103,7 @@ public class MoverPersonaje : MonoBehaviour
             agachado = false;
             colliderAgachado.enabled = false;
             colliderDePie.enabled = true;
+            anim.SetBool("Crouch", false);
             Debug.Log("De Pie");
         }
     }
