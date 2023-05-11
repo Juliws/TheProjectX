@@ -3743,7 +3743,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.9490197, g: 0.7607844, b: 0.37647063, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -12858,7 +12858,7 @@ Transform:
   m_GameObject: {fileID: 919132148863383389}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.039856765, y: -1, z: 0.0010675192}
-  m_LocalScale: {x: 1.1414, y: 1.1414001, z: 1.1414}
+  m_LocalScale: {x: 1.58, y: 1.1414001, z: 1.1414}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5465940247300443507}
@@ -14494,7 +14494,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1515070098183153651, guid: bdb751412b3da23458591e4f6dc53cb3, type: 3}
+  - {fileID: 2100000, guid: c994ea328336995429861bb93e4ed946, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
