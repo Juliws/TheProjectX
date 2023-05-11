@@ -1152,18 +1152,19 @@ MonoBehaviour:
   velocidadMovimiento: 10
   x: 0
   y: 0
+  anim: {fileID: 0}
   playerRb: {fileID: 176691489}
   colliderDePie: {fileID: 0}
+  giroCharacterChild: {fileID: 0}
+  giroCharacterTeen: {fileID: 0}
   giroAtras: {x: 0, y: 0, z: 0, w: 0}
   giroFrente: {x: 0, y: 0, z: 0, w: 0}
-  giroCharacter: {fileID: 0}
-  anim: {fileID: 0}
   jumpForce: 20
   enelSuelo: 0
   controlTecho: {fileID: 574489248}
+  colliderAgachado: {fileID: 0}
   agachado: 0
   estaAgachado: 0
-  colliderAgachado: {fileID: 0}
 --- !u!1 &178951632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,18 +3425,19 @@ MonoBehaviour:
   velocidadMovimiento: 10
   x: 0
   y: 0
+  anim: {fileID: 1530086275}
   playerRb: {fileID: 687275187}
   colliderDePie: {fileID: 687275184}
+  giroCharacterChild: {fileID: 543450652782947815}
+  giroCharacterTeen: {fileID: 543450653596213501}
   giroAtras: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
   giroFrente: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
-  giroCharacter: {fileID: 543450652782947815}
-  anim: {fileID: 1530086275}
   jumpForce: 20
   enelSuelo: 0
   controlTecho: {fileID: 574489248}
+  colliderAgachado: {fileID: 687275185}
   agachado: 0
   estaAgachado: 0
-  colliderAgachado: {fileID: 687275185}
 --- !u!54 &687275187
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9228,33 +9230,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1530086276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132148863383389}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a97b98bfff087d4c98322ba35a7f16b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidadMovimiento: 10
-  x: 0
-  y: 0
-  playerRb: {fileID: 0}
-  colliderDePie: {fileID: 0}
-  giroAtras: {x: 0, y: 0, z: 0, w: 0}
-  giroFrente: {x: 0, y: 0, z: 0, w: 0}
-  giroCharacter: {fileID: 543450652782947815}
-  anim: {fileID: 0}
-  jumpForce: 20
-  enelSuelo: 0
-  controlTecho: {fileID: 574489248}
-  agachado: 0
-  estaAgachado: 0
-  colliderAgachado: {fileID: 0}
 --- !u!1 &1625896094
 GameObject:
   m_ObjectHideFlags: 0
@@ -13010,7 +12985,6 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652782947815}
   - component: {fileID: 1530086275}
-  - component: {fileID: 1530086276}
   m_Layer: 0
   m_Name: Child
   m_TagString: Untagged
