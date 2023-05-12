@@ -44,7 +44,7 @@ public class Spawner<T> where T : Component
         }
         else
         {
-            newItem.transform.position += owner.transform.position;
+            newItem.transform.position = owner.transform.position;
         }
         owner.OnItemActivated(pool, newItem);
     }

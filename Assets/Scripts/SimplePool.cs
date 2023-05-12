@@ -47,7 +47,6 @@ public class SimplePool<T> where T: Component
         return itemsInPool[lastItemAdded];
     }
 
-
     public void Recycling(T usedItem)
     {
         var idx = itemsInPool.IndexOf(usedItem);
