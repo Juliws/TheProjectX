@@ -25,7 +25,12 @@ public class MoverPersonaje : MonoBehaviour
     [SerializeField] private Collider colliderAgachado;
     public bool agachado = false;
     public bool estaAgachado = false;
-    
+
+    [Header("PowerUpsCheck")]
+    public bool powerUpJump;
+    public bool powerUpCrouch;
+    public bool powerUpAttack;
+
     private void Start()
     {
         anim= GetComponentInChildren<Animator>();
@@ -37,7 +42,8 @@ public class MoverPersonaje : MonoBehaviour
     {
         MoverPlayer();
         //Correr();
-        Jump();
+        Jump(powerUpJump);
+        Ataque(powerUpAttack);
     }
 
     private void MoverPlayer()
@@ -48,7 +54,7 @@ public class MoverPersonaje : MonoBehaviour
         transform.Translate(x * Time.deltaTime * velocidadMovimiento, 0, 0); //Recibe el input para mover el personaje de manera horizontal
 
         anim.SetFloat("VelX", x);
-        Agachado();
+        Agachado(powerUpCrouch);
         
         //Giro del personaje izquierda
         if (x < 0)
@@ -87,9 +93,32 @@ public class MoverPersonaje : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         enelSuelo = true;
+        
+        if (collision.gameObject.CompareTag("PwrupJump"))
+        {
+            powerUpJump = true;
+            Debug.Log("Puedes Saltar");
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("PwrupCrouch"))
+        {
+            powerUpCrouch = true;
+            Debug.Log("Puedes Agacharte");
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("PwrupAttack"))
+        {
+           powerUpAttack = true;
+            Debug.Log("Puedes Atacar");
+            Destroy(collision.gameObject);
+        }
     }
 
-    public void Jump()
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+    public void Jump(bool jump)
     {
         if (Input.GetKeyDown(KeyCode.Space) && enelSuelo)
         {
@@ -103,7 +132,7 @@ public class MoverPersonaje : MonoBehaviour
         }
     }
 
-    public void Agachado()
+    public void Agachado(bool crouch)
     {
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
@@ -122,5 +151,13 @@ public class MoverPersonaje : MonoBehaviour
             Debug.Log("De Pie");
         }
     }
-    
+
+    public void Ataque(bool attack)
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            anim.SetTrigger("Attack");
+        }
+    }
+
 }
