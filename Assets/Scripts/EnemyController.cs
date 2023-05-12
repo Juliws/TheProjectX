@@ -32,13 +32,21 @@ public class EnemyController : MonoBehaviour
     {
         if (other.TryGetComponent(out LifeController player))
         {
+            Debug.Log("attack");
+
             Attack(player);
         }
         else if (other.CompareTag("Wall"))
         {
+            Debug.Log("recycling");
+
             pool.Recycling(this);
             gameObject.SetActive(false);
             transform.position = initialPos;
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+
     }
 }

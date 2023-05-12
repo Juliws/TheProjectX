@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1546688584117713860}
+  - component: {fileID: 1438007851}
+  - component: {fileID: 5676338915390112930}
   m_Layer: 0
   m_Name: ObstacleSpawner
   m_TagString: Untagged
@@ -31,3 +33,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1438007851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574759191404244940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970319eb3cb02c1429b9244a80157e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner:
+    pool:
+      prefab: {fileID: 6988799465053772342, guid: 45756893d39a5754789b31a95c373928,
+        type: 3}
+      parent: {fileID: 1546688584117713860}
+      initSize: 3
+      itemsInPool: []
+    timer: 0
+    spawnTime: 3
+    randomPos: 0
+    randomPosRange: 0
+--- !u!135 &5676338915390112930
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574759191404244940}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

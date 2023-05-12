@@ -6,6 +6,7 @@ public class LifeController : MonoBehaviour
 {
     [SerializeField]
     int initialLife;
+    [SerializeField]
     int life;
 
     void Start()
@@ -14,6 +15,7 @@ public class LifeController : MonoBehaviour
     }
     public void ReceiveDamage(int damageAmount)
     {
+        Debug.Log("received damage" + damageAmount);
         life -= damageAmount;
     }
 

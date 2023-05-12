@@ -18,7 +18,8 @@ public class EnemySpawner : MonoBehaviour, ISpawners<EnemyController>
 
     public void OnItemActivated(SimplePool<EnemyController> pool, EnemyController item)
     {
-        
+        item.Init(pool);
+        item.gameObject.SetActive(true);
     }
 
 }
