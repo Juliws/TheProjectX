@@ -1152,18 +1152,18 @@ MonoBehaviour:
   velocidadMovimiento: 10
   x: 0
   y: 0
+  anim: {fileID: 0}
   playerRb: {fileID: 176691489}
   colliderDePie: {fileID: 0}
+  giroCharacterChild: {fileID: 0}
   giroAtras: {x: 0, y: 0, z: 0, w: 0}
   giroFrente: {x: 0, y: 0, z: 0, w: 0}
-  giroCharacter: {fileID: 0}
-  anim: {fileID: 0}
   jumpForce: 20
   enelSuelo: 0
   controlTecho: {fileID: 574489248}
+  colliderAgachado: {fileID: 0}
   agachado: 0
   estaAgachado: 0
-  colliderAgachado: {fileID: 0}
 --- !u!1 &178951632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,18 +3424,18 @@ MonoBehaviour:
   velocidadMovimiento: 10
   x: 0
   y: 0
+  anim: {fileID: 1530086275}
   playerRb: {fileID: 687275187}
   colliderDePie: {fileID: 687275184}
+  giroCharacterChild: {fileID: 543450652782947815}
   giroAtras: {x: 0, y: 0.70710677, z: 0, w: -0.70710677}
   giroFrente: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
-  giroCharacter: {fileID: 543450652782947815}
-  anim: {fileID: 1530086275}
   jumpForce: 20
   enelSuelo: 0
   controlTecho: {fileID: 574489248}
+  colliderAgachado: {fileID: 687275185}
   agachado: 0
   estaAgachado: 0
-  colliderAgachado: {fileID: 687275185}
 --- !u!54 &687275187
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9243,18 +9243,18 @@ MonoBehaviour:
   velocidadMovimiento: 10
   x: 0
   y: 0
+  anim: {fileID: 0}
   playerRb: {fileID: 0}
   colliderDePie: {fileID: 0}
+  giroCharacterChild: {fileID: 0}
   giroAtras: {x: 0, y: 0, z: 0, w: 0}
   giroFrente: {x: 0, y: 0, z: 0, w: 0}
-  giroCharacter: {fileID: 543450652782947815}
-  anim: {fileID: 0}
   jumpForce: 20
   enelSuelo: 0
   controlTecho: {fileID: 574489248}
+  colliderAgachado: {fileID: 0}
   agachado: 0
   estaAgachado: 0
-  colliderAgachado: {fileID: 0}
 --- !u!1 &1625896094
 GameObject:
   m_ObjectHideFlags: 0
