@@ -27,7 +27,12 @@ public class EnemyController : MonoBehaviour
     {
         transform.position += transform.right * attackSpeed * Time.deltaTime;
     }
-
+    void Recycle()
+    {
+        pool.Recycling(this);
+        gameObject.SetActive(false);
+        transform.position = initialPos;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out LifeController player))
@@ -35,19 +40,12 @@ public class EnemyController : MonoBehaviour
             Debug.Log("attack");
 
             Attack(player);
-            pool.Recycling(this);
+            Recycle();
         }
         else if (other.CompareTag("Wall"))
         {
-            Debug.Log("recycling");
-
-            pool.Recycling(this);
-            gameObject.SetActive(false);
-            transform.position = initialPos;
+            Recycle();
         }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
 
     }
 }

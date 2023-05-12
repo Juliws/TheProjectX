@@ -28,7 +28,8 @@ public class LifeController : MonoBehaviour
     {
         if(life <= 0)
         {
-            //Game over condition
+            GameManager.Instance.gameStates = GameStates.GameOver;
+            Debug.Log("Game Over");
         }
     }
 }
