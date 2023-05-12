@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class MoverPersonaje : MonoBehaviour
 {
     [Header("Movimiento")]
-    public float velocidadMovimiento = 15.0f;
-    //public float velCorrer;
+    public float velocidadMovimiento = 10.0f;
     public float x, y;
+    public Animator anim;
     [SerializeField] Rigidbody playerRb;
     [SerializeField] private Collider colliderDePie;
-
-    private Animator anim;
+    [SerializeField] public Transform giroCharacterChild;
+    //[SerializeField] public Transform giroCharacterTeen;
+    [SerializeField] private Quaternion giroAtras;
+    [SerializeField] private Quaternion giroFrente;
 
     [Header("Salto")]
     public float jumpForce = 15.0f;
@@ -19,16 +22,15 @@ public class MoverPersonaje : MonoBehaviour
 
     [Header("Agachado")]
     [SerializeField] private Transform controlTecho;
-    [SerializeField] bool agachado = false;
-    [SerializeField] bool estaAgachado = false;
     [SerializeField] private Collider colliderAgachado;
+    public bool agachado = false;
+    public bool estaAgachado = false;
     
-
     private void Start()
     {
-        //anim = GetComponent<Animator>();
+        anim= GetComponentInChildren<Animator>();
         playerRb = GetComponent<Rigidbody>();
-        agachado = GetComponent<bool>();
+        agachado = GetComponent<GameObject>();
     }
 
     void Update()
@@ -40,13 +42,27 @@ public class MoverPersonaje : MonoBehaviour
 
     private void MoverPlayer()
     {
-        x = Input.GetAxis("Horizontal");
-        y = Input.GetAxis("Vertical");
+        x = Input.GetAxisRaw("Horizontal"); //Obtiene el input para moverse horizontalmente
+        //y = Input.GetAxis("Vertical");
 
-        transform.Translate(x * Time.deltaTime * velocidadMovimiento, 0, 0);
+        transform.Translate(x * Time.deltaTime * velocidadMovimiento, 0, 0); //Recibe el input para mover el personaje de manera horizontal
 
+        anim.SetFloat("VelX", x);
         Agachado();
-        //anim.SetFloat("VelX", x);
+        
+        //Giro del personaje izquierda
+        if (x < 0)
+        {
+            giroCharacterChild.transform.rotation = giroAtras;
+            //giroCharacterTeen.transform.rotation = giroAtras;
+        }
+        //Giro del personaje derecha
+        else if (x > 0)
+        {
+            giroCharacterChild.transform.rotation = giroFrente;
+            //giroCharacterTeen.transform.rotation = giroAtras;
+        }
+
         //anim.SetFloat("VelY", y);
     }
 
@@ -79,6 +95,11 @@ public class MoverPersonaje : MonoBehaviour
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             enelSuelo = false;
+            anim.SetBool("Jump", true);
+        }
+        else
+        {
+            anim.SetBool("Jump", false);
         }
     }
 
@@ -88,6 +109,7 @@ public class MoverPersonaje : MonoBehaviour
         {
             agachado = true;
             colliderAgachado.enabled = true;
+            anim.SetBool("Crouch", true);
             colliderDePie.enabled = false;
             Debug.Log("Agachado");
         }
@@ -96,7 +118,9 @@ public class MoverPersonaje : MonoBehaviour
             agachado = false;
             colliderAgachado.enabled = false;
             colliderDePie.enabled = true;
+            anim.SetBool("Crouch", false);
             Debug.Log("De Pie");
         }
     }
+    
 }
