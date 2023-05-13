@@ -17,19 +17,19 @@ public class MoverPersonaje : MonoBehaviour
     [SerializeField] private Quaternion giroFrente;
 
     [Header("Salto")]
-    public float jumpForce = 15.0f;
-    public bool enelSuelo;
+    [SerializeField] private float jumpForce = 15.0f;
+    [SerializeField] private bool enelSuelo;
 
     [Header("Agachado")]
     [SerializeField] private Transform controlTecho;
     [SerializeField] private Collider colliderAgachado;
-    public bool agachado = false;
-    public bool estaAgachado = false;
+    [SerializeField] private bool agachado = false;
+    //[SerializeField] private bool estaAgachado = false;
 
     [Header("PowerUpsCheck")]
-    public bool powerUpJump;
-    public bool powerUpCrouch;
-    public bool powerUpAttack;
+    [SerializeField] private bool powerUpJump;
+    [SerializeField] private bool powerUpCrouch;
+    [SerializeField] private bool powerUpAttack;
 
     private void Start()
     {
@@ -41,12 +41,13 @@ public class MoverPersonaje : MonoBehaviour
     void Update()
     {
         MoverPlayer();
+        ComprobarPowerUps(); //Comprueba si ha adquirido los power ups para activar la habilidad correspondiente
         //Correr();
-        Jump(powerUpJump);
-        Ataque(powerUpAttack);
+        //Jump();
+        //Ataque();
     }
 
-    private void MoverPlayer()
+    private void MoverPlayer() // Metodo para mover el personaje
     {
         x = Input.GetAxisRaw("Horizontal"); //Obtiene el input para moverse horizontalmente
         //y = Input.GetAxis("Vertical");
@@ -54,7 +55,6 @@ public class MoverPersonaje : MonoBehaviour
         transform.Translate(x * Time.deltaTime * velocidadMovimiento, 0, 0); //Recibe el input para mover el personaje de manera horizontal
 
         anim.SetFloat("VelX", x);
-        Agachado(powerUpCrouch);
         
         //Giro del personaje izquierda
         if (x < 0)
@@ -90,35 +90,49 @@ public class MoverPersonaje : MonoBehaviour
         }
     }*/
 
-    private void OnCollisionEnter(Collision collision)
+    void ComprobarPowerUps() //Metodo para comprobar si puede usar las habilidades despues de obtener el powerup
     {
-        enelSuelo = true;
-        
-        if (collision.gameObject.CompareTag("PwrupJump"))
+        if (powerUpJump==true)
         {
-            powerUpJump = true;
-            Debug.Log("Puedes Saltar");
-            Destroy(collision.gameObject);
+            Jump();
         }
-        if (collision.gameObject.CompareTag("PwrupCrouch"))
+        if (powerUpCrouch==true)
         {
-            powerUpCrouch = true;
-            Debug.Log("Puedes Agacharte");
-            Destroy(collision.gameObject);
+            Agachado();
         }
-        if (collision.gameObject.CompareTag("PwrupAttack"))
+        if (powerUpAttack==true)
         {
-           powerUpAttack = true;
-            Debug.Log("Puedes Atacar");
-            Destroy(collision.gameObject);
+            Ataque();
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision) // condicion para ver si hay contacto con el suelo (para la logica del salto)
     {
-        
+        enelSuelo = true;
     }
-    public void Jump(bool jump)
+
+    private void OnTriggerEnter(Collider other) // Metodo que determina despues de tomar el power up para cambiar el estado a verdadero
+    {
+        if (other.gameObject.CompareTag("PwrupJump"))
+        {
+            powerUpJump = true;
+            Debug.Log("Puedes Saltar");
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("PwrupCrouch"))
+        {
+            powerUpCrouch = true;
+            Debug.Log("Puedes Agacharte");
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("PwrupAttack"))
+        {
+            powerUpAttack = true;
+            Debug.Log("Puedes Atacar");
+            Destroy(other.gameObject);
+        }
+    }
+    public void Jump() // Metodo de salto
     {
         if (Input.GetKeyDown(KeyCode.Space) && enelSuelo)
         {
@@ -132,7 +146,7 @@ public class MoverPersonaje : MonoBehaviour
         }
     }
 
-    public void Agachado(bool crouch)
+    public void Agachado() // Metodo para activar y desactivar el area de un collider
     {
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
@@ -152,7 +166,7 @@ public class MoverPersonaje : MonoBehaviour
         }
     }
 
-    public void Ataque(bool attack)
+    public void Ataque() // Metodo para atacar
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
