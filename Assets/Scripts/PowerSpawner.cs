@@ -17,7 +17,7 @@ public class PowerSpawner : MonoBehaviour, ISpawners<PoweController>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z) && player.powerUpAttack)
+        if (Input.GetKeyDown(KeyCode.Z)) //&& player.Ataque)
         {
             spawner.Timing();
         }
