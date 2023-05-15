@@ -1,6 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -10,9 +13,9 @@ public class GameManager : MonoBehaviour
     public GameStates gameStates;
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
-            if(instance != this)
+            if (instance != this)
             {
                 DestroyImmediate(this);
             }
@@ -22,13 +25,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
 public enum GameStates
