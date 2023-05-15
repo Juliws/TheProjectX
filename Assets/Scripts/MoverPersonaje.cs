@@ -29,7 +29,7 @@ public class MoverPersonaje : MonoBehaviour
     [Header("PowerUpsCheck")]
     [SerializeField] private bool powerUpJump;
     [SerializeField] private bool powerUpCrouch;
-    [SerializeField] private bool powerUpAttack;
+    public bool powerUpAttack;
 
     private void Start()
     {
