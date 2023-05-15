@@ -24,7 +24,7 @@ public class MoverPersonaje : MonoBehaviour
     [SerializeField] private Transform controlTecho;
     [SerializeField] private Collider colliderAgachado;
     [SerializeField] private bool agachado = false;
-    //[SerializeField] private bool estaAgachado = false;
+    [SerializeField] private bool estaAgachado = false;
 
     [Header("PowerUpsCheck")]
     [SerializeField] private bool powerUpJump;
@@ -109,6 +109,21 @@ public class MoverPersonaje : MonoBehaviour
     private void OnCollisionEnter(Collision collision) // condicion para ver si hay contacto con el suelo (para la logica del salto)
     {
         enelSuelo = true;
+        if (collision.gameObject.CompareTag("BendWall"))
+        {
+            estaAgachado = true;
+            anim.SetBool("Crouch", true);
+            colliderAgachado.enabled = true;
+            colliderDePie.enabled = false;
+            Debug.Log("Si estoy debajo");
+        }
+        else 
+        {
+            estaAgachado = false; 
+            anim.SetBool("Crouch", false);
+            colliderAgachado.enabled = false;
+            colliderDePie.enabled = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other) // Metodo que determina despues de tomar el power up para cambiar el estado a verdadero
@@ -134,31 +149,37 @@ public class MoverPersonaje : MonoBehaviour
     }
     public void Jump() // Metodo de salto
     {
-        if (Input.GetKeyDown(KeyCode.Space) && enelSuelo)
+        if (Input.GetKey(KeyCode.Space) && enelSuelo)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             enelSuelo = false;
-            anim.SetBool("Jump", true);
+            anim.SetTrigger("Jump");
         }
-        else
-        {
-            anim.SetBool("Jump", false);
-        }
+       
     }
 
     public void Agachado() // Metodo para activar y desactivar el area de un collider
     {
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.DownArrow))//Input.GetKey(KeyCode.S))
+        {
+            agachado = true;
+            //estaAgachado = true;
+            colliderAgachado.enabled = true;
+            anim.SetBool("Crouch", true);
+            colliderDePie.enabled = false;
+            Debug.Log("Agachado");
+        }/*else if (estaAgachado==true) 
         {
             agachado = true;
             colliderAgachado.enabled = true;
             anim.SetBool("Crouch", true);
             colliderDePie.enabled = false;
-            Debug.Log("Agachado");
-        }
+            Debug.Log("AG");
+        }*/
         else
         {
             agachado = false;
+            //estaAgachado = false;
             colliderAgachado.enabled = false;
             colliderDePie.enabled = true;
             anim.SetBool("Crouch", false);
