@@ -40,7 +40,7 @@ public class Spawner<T> where T : Component
         if (randomPos)
         {
             var ranPos = Random.Range(randomPosRange, -randomPosRange);
-            newItem.transform.position += newItem.transform.forward * ranPos;
+            newItem.transform.position += newItem.transform.up * ranPos;
         }
         else
         {
