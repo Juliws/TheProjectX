@@ -22,10 +22,9 @@ public class MoverPersonaje : MonoBehaviour
     [SerializeField] private bool enelSuelo;
 
     [Header("Agachado")]
-    [SerializeField] private Transform controlTecho;
     [SerializeField] private Collider colliderAgachado;
-    [SerializeField] private bool agachado = false;
-    [SerializeField] private bool estaAgachado = false;
+    [SerializeField] public bool agachado = false;
+    [SerializeField] public bool estaAgachado = false;
 
     [Header("PowerUpsCheck")]
     [SerializeField] private bool powerUpJump;
@@ -36,7 +35,7 @@ public class MoverPersonaje : MonoBehaviour
     {
         anim= GetComponentInChildren<Animator>();
         playerRb = GetComponent<Rigidbody>();
-        agachado = GetComponent<GameObject>();
+        //agachado = GetComponent<GameObject>();
     }
 
     void Update()
@@ -111,25 +110,20 @@ public class MoverPersonaje : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Roof"))
         {
-            enelSuelo = false;
-            estaAgachado = true;
-            anim.SetBool("Crouch", true);
+            estaAgachado = true;            
+            /*anim.SetBool("Crouch", true);
             colliderAgachado.enabled = true;
             colliderDePie.enabled = false;
-            Debug.Log("Si estoy debajo");
+            Debug.Log("Si estoy debajo");*/
         }
         else
         {
-            estaAgachado = false;
-            anim.SetBool("Crouch", false);
+            estaAgachado = false;            
+            /*anim.SetBool("Crouch", false);
             colliderAgachado.enabled = false;
-            colliderDePie.enabled = true;
+            colliderDePie.enabled = true;*/
         }
-        /*if (collision.gameObject.CompareTag("Ground"))
-        {
-            enelSuelo = true;
-        }*/
-
+       
         /*if (collision.gameObject.CompareTag("Ground"))
         {
             estaAgachado = true;
@@ -197,14 +191,14 @@ public class MoverPersonaje : MonoBehaviour
             anim.SetBool("Crouch", true);
             colliderDePie.enabled = false;
             Debug.Log("Agachado");
-        }/*else if (estaAgachado==true) 
+        }else if (estaAgachado==true) 
         {
             agachado = true;
             colliderAgachado.enabled = true;
             anim.SetBool("Crouch", true);
             colliderDePie.enabled = false;
             Debug.Log("AG");
-        }*/
+        }
         else
         {
             agachado = false;
