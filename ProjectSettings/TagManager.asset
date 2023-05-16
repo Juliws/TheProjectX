@@ -8,8 +8,8 @@ TagManager:
   - PwrupJump
   - PwrupCrouch
   - PwrupAttack
-  - BendWall
   - Ground
+  - Roof
   layers:
   - Default
   - TransparentFX
