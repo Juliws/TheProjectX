@@ -12,7 +12,7 @@ public class MoverPersonaje : MonoBehaviour
     [SerializeField] Rigidbody playerRb;
     [SerializeField] private Collider colliderDePie;
     [SerializeField] public Transform giroCharacterChild;
-    //[SerializeField] public Transform giroCharacterTeen;
+    [SerializeField] public Transform giroCharacterTeen;
     [SerializeField] private Quaternion giroAtras;
     [SerializeField] private Quaternion giroFrente;
 
@@ -60,13 +60,13 @@ public class MoverPersonaje : MonoBehaviour
         if (x < 0)
         {
             giroCharacterChild.transform.rotation = giroAtras;
-            //giroCharacterTeen.transform.rotation = giroAtras;
+            giroCharacterTeen.transform.rotation = giroAtras;
         }
         //Giro del personaje derecha
         else if (x > 0)
         {
             giroCharacterChild.transform.rotation = giroFrente;
-            //giroCharacterTeen.transform.rotation = giroAtras;
+            giroCharacterTeen.transform.rotation = giroFrente;
         }
 
         //anim.SetFloat("VelY", y);
@@ -108,8 +108,12 @@ public class MoverPersonaje : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) // condicion para ver si hay contacto con el suelo (para la logica del salto)
     {
-        enelSuelo = true;
-        if (collision.gameObject.CompareTag("BendWall"))
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            enelSuelo = true;
+        }
+        
+        /*if (collision.gameObject.CompareTag("Ground"))
         {
             estaAgachado = true;
             anim.SetBool("Crouch", true);
@@ -123,7 +127,7 @@ public class MoverPersonaje : MonoBehaviour
             anim.SetBool("Crouch", false);
             colliderAgachado.enabled = false;
             colliderDePie.enabled = true;
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other) // Metodo que determina despues de tomar el power up para cambiar el estado a verdadero
@@ -145,6 +149,22 @@ public class MoverPersonaje : MonoBehaviour
             powerUpAttack = true;
             Debug.Log("Puedes Atacar");
             Destroy(other.gameObject);
+        }
+        
+        if (other.CompareTag("Wall"))
+        {
+            enelSuelo = false;
+            estaAgachado = true;
+            anim.SetBool("Crouch", true);
+            colliderAgachado.enabled = true;
+            colliderDePie.enabled = false;
+            Debug.Log("Si estoy debajo");
+        }else
+        {
+            estaAgachado = false;
+            anim.SetBool("Crouch", false);
+            colliderAgachado.enabled = false;
+            colliderDePie.enabled = true;
         }
     }
     public void Jump() // Metodo de salto
