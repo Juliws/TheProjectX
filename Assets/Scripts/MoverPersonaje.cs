@@ -108,21 +108,14 @@ public class MoverPersonaje : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) // condicion para ver si hay contacto con el suelo (para la logica del salto)
     {
-        if (collision.gameObject.CompareTag("Roof"))
+        /*if (collision.gameObject.CompareTag("Roof"))
         {
             estaAgachado = true;            
             /*anim.SetBool("Crouch", true);
             colliderAgachado.enabled = true;
             colliderDePie.enabled = false;
-            Debug.Log("Si estoy debajo");*/
-        }
-        else
-        {
-            estaAgachado = false;            
-            /*anim.SetBool("Crouch", false);
-            colliderAgachado.enabled = false;
-            colliderDePie.enabled = true;*/
-        }
+            Debug.Log("Si estoy debajo");
+        }*/
        
         /*if (collision.gameObject.CompareTag("Ground"))
         {
@@ -147,7 +140,7 @@ public class MoverPersonaje : MonoBehaviour
         {
             enelSuelo = true;
         }
-
+    
         if (other.gameObject.CompareTag("PwrupJump"))
         {
             powerUpJump = true;
@@ -199,10 +192,10 @@ public class MoverPersonaje : MonoBehaviour
             colliderDePie.enabled = false;
             Debug.Log("AG");
         }
-        else
+        else if(Input.GetKey(KeyCode.UpArrow))
         {
+            estaAgachado = false;
             agachado = false;
-            //estaAgachado = false;
             colliderAgachado.enabled = false;
             colliderDePie.enabled = true;
             anim.SetBool("Crouch", false);
