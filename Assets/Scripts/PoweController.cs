@@ -8,7 +8,7 @@ public class PoweController : MonoBehaviour
     [SerializeField]
     float powerSpreadSpeed;
     float timer;
-    float lifeSpan = 10;
+    [SerializeField] float lifeSpan = 10;
     public void Init(SimplePool<PoweController> simplePool)
     {
         pool = simplePool;
@@ -25,6 +25,7 @@ public class PoweController : MonoBehaviour
         if(timer >= lifeSpan)
         {
             Recycling();
+            timer = 0;
         }
         transform.position += transform.right * powerSpreadSpeed * Time.deltaTime;
     }

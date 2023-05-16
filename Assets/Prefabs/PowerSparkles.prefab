@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerSpreadSpeed: 10
+  lifeSpan: 5
 --- !u!135 &4823312665698394192
 SphereCollider:
   m_ObjectHideFlags: 0

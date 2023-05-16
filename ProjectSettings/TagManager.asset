@@ -8,15 +8,16 @@ TagManager:
   - PwrupJump
   - PwrupCrouch
   - PwrupAttack
-  - BendWall
+  - Ground
+  - Roof
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
