@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class MoverPersonaje : MonoBehaviour
@@ -33,9 +34,8 @@ public class MoverPersonaje : MonoBehaviour
 
     private void Start()
     {
-        anim= GetComponentInChildren<Animator>();
+        anim = GetComponentInChildren<Animator>();
         playerRb = GetComponent<Rigidbody>();
-        //agachado = GetComponent<GameObject>();
     }
 
     void Update()
@@ -50,12 +50,15 @@ public class MoverPersonaje : MonoBehaviour
     private void MoverPlayer() // Metodo para mover el personaje
     {
         x = Input.GetAxisRaw("Horizontal"); //Obtiene el input para moverse horizontalmente
-        //y = Input.GetAxisRaw("Vertical");
 
         transform.Translate(x * Time.deltaTime * velocidadMovimiento, 0, 0); //Recibe el input para mover el personaje de manera horizontal
-
         anim.SetFloat("VelX", x);
-        
+
+        /*Vector3 direction = GetComponent<Rigidbody>().velocity;
+
+        direction.y = playerRb.velocity.y;
+        playerRb.velocity = direction;*/
+
         //Giro del personaje izquierda
         if (x < 0)
         {
@@ -69,69 +72,27 @@ public class MoverPersonaje : MonoBehaviour
             giroCharacterTeen.transform.rotation = giroFrente;
         }
 
-        //anim.SetFloat("VelY", y);
     }
-
-    /*private void Correr()
-    {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            velocidadMovimiento = velCorrer;
-            if (y > 0)
-            {
-                //anim.SetBool("correr", true);
-                //    velCorrer = 7.0f;
-            }
-            else
-            {
-                //anim.SetBool("correr", false);
-                velocidadMovimiento = 5.0f;
-            }
-        }
-    }*/
 
     void ComprobarPowerUps() //Metodo para comprobar si puede usar las habilidades despues de obtener el powerup
     {
-        if (powerUpJump==true)
+        if (powerUpJump == true)
         {
             Jump();
         }
-        if (powerUpCrouch==true)
+        if (powerUpCrouch == true)
         {
             Agachado();
         }
-        if (powerUpAttack==true)
+        if (powerUpAttack == true)
         {
             Ataque();
         }
     }
-
-    private void OnCollisionEnter(Collision collision) // condicion para ver si hay contacto con el suelo (para la logica del salto)
+    private void OnCollisionExit(Collision collision) // Metodo para detectar que al no colisionar con el piso de como resultado a que este en el aire
     {
-        /*if (collision.gameObject.CompareTag("Roof"))
-        {
-            estaAgachado = true;            
-            /*anim.SetBool("Crouch", true);
-            colliderAgachado.enabled = true;
-            colliderDePie.enabled = false;
-            Debug.Log("Si estoy debajo");
-        }*/
-       
-        /*if (collision.gameObject.CompareTag("Ground"))
-        {
-            estaAgachado = true;
-            anim.SetBool("Crouch", true);
-            colliderAgachado.enabled = true;
-            colliderDePie.enabled = false;
-            Debug.Log("Si estoy debajo");
-        }
-        else 
-        {
-            estaAgachado = false; 
-            anim.SetBool("Crouch", false);
-            colliderAgachado.enabled = false;
-            colliderDePie.enabled = true;
-        }*/
+        enelSuelo = false;
+        anim.SetBool("OnAir", true);
     }
 
     private void OnTriggerEnter(Collider other) // Metodo que determina despues de tomar el power up para cambiar el estado a verdadero
@@ -139,8 +100,9 @@ public class MoverPersonaje : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             enelSuelo = true;
+            anim.SetBool("OnAir", false);
         }
-    
+
         if (other.gameObject.CompareTag("PwrupJump"))
         {
             powerUpJump = true;
@@ -159,8 +121,12 @@ public class MoverPersonaje : MonoBehaviour
             Debug.Log("Puedes Atacar");
             Destroy(other.gameObject);
         }
-        
-        
+    }
+
+    private void OnTriggerExit(Collider other) //Metodo para corroborar que el personaje esta tocando el suelo
+    {
+        enelSuelo = false;
+        anim.SetBool("OnAir", true);
     }
     public void Jump() // Metodo de salto
     {
@@ -169,14 +135,15 @@ public class MoverPersonaje : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             enelSuelo = false;
             anim.SetTrigger("Jump");
+
         }
-        
+
     }
 
     public void Agachado() // Metodo para activar y desactivar el area de un collider
     {
-        
-        if (Input.GetKey(KeyCode.DownArrow))//Input.GetKey(KeyCode.S))
+
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             agachado = true;
             //estaAgachado = true;
@@ -184,7 +151,8 @@ public class MoverPersonaje : MonoBehaviour
             anim.SetBool("Crouch", true);
             colliderDePie.enabled = false;
             Debug.Log("Agachado");
-        }else if (estaAgachado==true) 
+        }
+        else if (estaAgachado == true)
         {
             agachado = true;
             colliderAgachado.enabled = true;
@@ -192,7 +160,7 @@ public class MoverPersonaje : MonoBehaviour
             colliderDePie.enabled = false;
             Debug.Log("AG");
         }
-        else if(Input.GetKey(KeyCode.UpArrow))
+        else if (Input.GetKey(KeyCode.UpArrow))
         {
             estaAgachado = false;
             agachado = false;
