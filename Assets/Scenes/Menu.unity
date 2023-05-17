@@ -585,6 +585,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5943829236066032, guid: 51f4939fc8ab3e84ab4e5f8ba08dd59a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5943829626733491, guid: 51f4939fc8ab3e84ab4e5f8ba08dd59a, type: 3}
       propertyPath: m_Name
       value: MenuCanvas
@@ -681,5 +685,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1181928008}
+    - target: {fileID: 5943830976482642, guid: 51f4939fc8ab3e84ab4e5f8ba08dd59a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51f4939fc8ab3e84ab4e5f8ba08dd59a, type: 3}
