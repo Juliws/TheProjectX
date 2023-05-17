@@ -89,11 +89,17 @@ public class MoverPersonaje : MonoBehaviour
             Ataque();
         }
     }
-    private void OnCollisionExit(Collision collision) // Metodo para detectar que al no colisionar con el piso de como resultado a que este en el aire
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        enelSuelo = true;
+    }
+
+    /*private void OnCollisionExit(Collision collision) // Metodo para detectar que al no colisionar con el piso de como resultado a que este en el aire
     {
         enelSuelo = false;
         anim.SetBool("OnAir", true);
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other) // Metodo que determina despues de tomar el power up para cambiar el estado a verdadero
     {
