@@ -131,8 +131,11 @@ public class MoverPersonaje : MonoBehaviour
 
     private void OnTriggerExit(Collider other) //Metodo para corroborar que el personaje esta tocando el suelo
     {
-        enelSuelo = false;
-        anim.SetBool("OnAir", true);
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            enelSuelo = false;
+            anim.SetBool("OnAir", true);
+        }
     }
     public void Jump() // Metodo de salto
     {
@@ -141,9 +144,7 @@ public class MoverPersonaje : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             enelSuelo = false;
             anim.SetTrigger("Jump");
-
         }
-
     }
 
     public void Agachado() // Metodo para activar y desactivar el area de un collider
