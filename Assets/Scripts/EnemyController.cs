@@ -10,9 +10,12 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     int damageAmount;
     Vector3 initialPos;
+    [SerializeField]
+    AudioSource firingSound;
     public void Init(SimplePool<EnemyController> _pool)
     {
         pool = _pool;
+        firingSound.PlayOneShot(firingSound.clip);
     }
     void Start()
     {
