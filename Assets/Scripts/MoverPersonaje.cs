@@ -42,6 +42,7 @@ public class MoverPersonaje : MonoBehaviour
     {
         MoverPlayer();
         ComprobarPowerUps(); //Comprueba si ha adquirido los power ups para activar la habilidad correspondiente
+        
         //Correr();
         //Jump();
         //Ataque();
