@@ -40,12 +40,18 @@ public class MoverPersonaje : MonoBehaviour
 
     void Update()
     {
-        MoverPlayer();
+        //MoverPlayer();
         ComprobarPowerUps(); //Comprueba si ha adquirido los power ups para activar la habilidad correspondiente
         
         //Correr();
         //Jump();
         //Ataque();
+    }
+
+    private void FixedUpdate()
+    {
+        MoverPlayer();
+        //ComprobarPowerUps();
     }
 
     private void MoverPlayer() // Metodo para mover el personaje
