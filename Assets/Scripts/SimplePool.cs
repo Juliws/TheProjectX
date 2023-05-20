@@ -8,8 +8,7 @@ public class SimplePool<T> where T: Component
 {
     [SerializeField]
     T prefab;
-    [SerializeField]
-    Transform parent;
+    public Transform parent;
     [SerializeField]
     int initSize;
     [SerializeField]

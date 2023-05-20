@@ -10,6 +10,7 @@ public class MoverPersonaje : MonoBehaviour
     public float velocidadMovimiento = 10.0f;
     public float x, y;
     public Animator anim;
+    PowerSpawner powerSpawner;
     [SerializeField] Rigidbody playerRb;
     [SerializeField] private Collider colliderDePie;
     [SerializeField] public Transform giroCharacterChild;
@@ -36,6 +37,7 @@ public class MoverPersonaje : MonoBehaviour
     {
         anim = GetComponentInChildren<Animator>();
         playerRb = GetComponent<Rigidbody>();
+        powerSpawner = GetComponentInChildren<PowerSpawner>();
     }
 
     void Update()
@@ -184,6 +186,7 @@ public class MoverPersonaje : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKey(KeyCode.JoystickButton3))
         {
             anim.SetTrigger("Attack");
+            powerSpawner.Shot();
         }
     }
 
