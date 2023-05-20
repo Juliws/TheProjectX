@@ -15104,6 +15104,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 176691494}
+    - target: {fileID: 309421409858431829, guid: 7de5ccc5bb4885940925fb33adf35cf2,
+        type: 3}
+      propertyPath: spawner.randomPos
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8255296348184124068, guid: 7de5ccc5bb4885940925fb33adf35cf2,
         type: 3}
       propertyPath: m_RootOrder

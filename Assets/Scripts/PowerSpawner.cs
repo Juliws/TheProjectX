@@ -7,6 +7,8 @@ public class PowerSpawner : MonoBehaviour, ISpawners<PoweController>
     public Spawner<PoweController> spawner;
     [SerializeField]
     MoverPersonaje player;
+    [SerializeField]
+    Transform powerPrefabSpot;
 
     // Start is called before the first frame update
     void Start()
@@ -14,17 +16,16 @@ public class PowerSpawner : MonoBehaviour, ISpawners<PoweController>
         spawner.Init(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Shot()
     {
-        if (Input.GetKeyDown(KeyCode.Z)) //&& player.Ataque)
-        {
-            spawner.Timing();
-        }
+        spawner.Timing();
+
     }
     public void OnItemActivated(SimplePool<PoweController> pool, PoweController item)
     {
         item.Init(pool);
         item.gameObject.SetActive(true);
+        item.transform.right = pool.parent.transform.right;
+        item.gameObject.transform.SetParent(powerPrefabSpot);
     }
 }
