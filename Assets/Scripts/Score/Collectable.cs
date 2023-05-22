@@ -7,14 +7,16 @@ public class Collectable : MonoBehaviour
     [SerializeField] private AudioClip sonidopunto;
     [SerializeField] private int cantidad;
     [SerializeField] private Score puntaje;
-    
+    [SerializeField] private ParticleSystem particle;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             puntaje.sumarPuntos(cantidad);
             SoundsControl.Instance.Playsound(sonidopunto);
-            Destroy(gameObject);
+            particle.Play();
+            Destroy(gameObject,0.4f);
         }
     }
 }
