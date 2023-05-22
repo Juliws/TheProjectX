@@ -35,17 +35,17 @@ public class WinandLose : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("WinObject")) 
-        { 
-            wonScreen.SetActive(true);
-            Time.timeScale = 0f;
-        }
-
-        if (other.gameObject.CompareTag("Enemy"))
+        if(collision.gameObject.CompareTag("Enemy"))
         {
             loseScreen.SetActive(true);
+            Time.timeScale = 0f;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("WinObject"))
+        {
+            wonScreen.SetActive(true);
             Time.timeScale = 0f;
         }
     }
