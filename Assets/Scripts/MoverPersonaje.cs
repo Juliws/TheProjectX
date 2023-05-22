@@ -21,7 +21,7 @@ public class MoverPersonaje : MonoBehaviour
     [Header("Salto")]
     [SerializeField] private float jumpForce = 15.0f;
     [SerializeField] private GameObject checkGround;
-    [SerializeField] private bool enelSuelo;
+    [SerializeField] private bool enElSuelo;
 
     [Header("Agachado")]
     [SerializeField] private Collider colliderAgachado;
@@ -32,6 +32,9 @@ public class MoverPersonaje : MonoBehaviour
     [SerializeField] private bool powerUpJump;
     [SerializeField] private bool powerUpCrouch;
     [SerializeField] private bool powerUpAttack;
+    [SerializeField] private GameObject child;
+    [SerializeField] private GameObject teen;
+    [SerializeField] private Animator teenAnim;
 
     private void Start()
     {
@@ -62,6 +65,7 @@ public class MoverPersonaje : MonoBehaviour
 
         transform.Translate(x * Time.deltaTime * velocidadMovimiento, 0, 0); //Recibe el input para mover el personaje de manera horizontal
         anim.SetFloat("VelX", x);
+        teenAnim.SetFloat("VelX", x);
 
         /*Vector3 direction = GetComponent<Rigidbody>().velocity;
 
@@ -97,11 +101,16 @@ public class MoverPersonaje : MonoBehaviour
         {
             Ataque();
         }
+        if(powerUpJump & powerUpCrouch & powerUpAttack)
+        {
+            child.gameObject.SetActive(false);
+            teen.gameObject.SetActive(true);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        enelSuelo = true;
+        enElSuelo = true;
     }
 
     /*private void OnCollisionExit(Collision collision) // Metodo para detectar que al no colisionar con el piso de como resultado a que este en el aire
@@ -114,8 +123,9 @@ public class MoverPersonaje : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            enelSuelo = true;
+            enElSuelo = true;
             anim.SetBool("OnAir", false);
+            teenAnim.SetBool("OnAir", false);
         }
 
         if (other.gameObject.CompareTag("PwrupJump"))
@@ -142,17 +152,19 @@ public class MoverPersonaje : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            enelSuelo = false;
+            enElSuelo = false;
             anim.SetBool("OnAir", true);
+            teenAnim.SetBool("OnAir", true);
         }
     }
     public void Jump() // Metodo de salto
     {
-        if (Input.GetKey(KeyCode.Space) && enelSuelo)
+        if (Input.GetKey(KeyCode.Space) && enElSuelo)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            enelSuelo = false;
+            enElSuelo = false;
             anim.SetTrigger("Jump");
+            teenAnim.SetTrigger("Jump");
         }
     }
 
@@ -165,6 +177,7 @@ public class MoverPersonaje : MonoBehaviour
             //estaAgachado = true;
             colliderAgachado.enabled = true;
             anim.SetBool("Crouch", true);
+            teenAnim.SetBool("Crouch", true);
             colliderDePie.enabled = false;
             Debug.Log("Agachado");
         }
@@ -173,6 +186,7 @@ public class MoverPersonaje : MonoBehaviour
             agachado = true;
             colliderAgachado.enabled = true;
             anim.SetBool("Crouch", true);
+            teenAnim.SetBool("Crouch", true);
             colliderDePie.enabled = false;
             Debug.Log("AG");
         }
@@ -183,6 +197,7 @@ public class MoverPersonaje : MonoBehaviour
             colliderAgachado.enabled = false;
             colliderDePie.enabled = true;
             anim.SetBool("Crouch", false);
+            teenAnim.SetBool("Crouch", false);
             Debug.Log("De Pie");
         }
     }
@@ -192,6 +207,7 @@ public class MoverPersonaje : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKey(KeyCode.JoystickButton3))
         {
             anim.SetTrigger("Attack");
+            teenAnim.SetTrigger("Attack");
             powerSpawner.Shot();
         }
     }
