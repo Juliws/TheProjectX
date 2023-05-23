@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get => instance; }
     public LifeController player;
     public GameStates gameStates;
+    public UIGamePlay uIGamePlay;
     private void Awake()
     {
         if (instance != null)
@@ -25,9 +26,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
+        TryGetComponent(out uIGamePlay);
     }
-
+    public void OnLifeChange(bool lostLife, int life)
+    {
+        uIGamePlay.ChangeLife(lostLife, life);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -36,7 +40,7 @@ public class GameManager : MonoBehaviour
 }
 public enum GameStates
 {
-    GamemMenu,
+    GameMenu,
     GameStart,
     GameOver
 }

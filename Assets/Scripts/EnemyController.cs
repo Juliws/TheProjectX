@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    SimplePool<EnemyController> pool;
     [SerializeField]
     float attackSpeed;
     [SerializeField]
     int damageAmount;
-    Vector3 initialPos;
     [SerializeField]
-    AudioSource firingSound;
-    public void Init(SimplePool<EnemyController> _pool)
-    {
-        pool = _pool;
-        firingSound.PlayOneShot(firingSound.clip);
-    }
+    bool imABullet;
+    [SerializeField]
+    ParticleSystem effect;
+    public AudioSource effectSound;
+
     void Start()
     {
-        initialPos = transform.position;
     }
     void Attack(LifeController lifeController)
     {
@@ -28,14 +24,12 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        transform.position += transform.right * attackSpeed * Time.deltaTime;
+        if (imABullet)
+        {
+            transform.position += transform.right * attackSpeed * Time.deltaTime;
+        }
     }
-    void Recycle()
-    {
-        pool.Recycling(this);
-        gameObject.SetActive(false);
-        transform.position = initialPos;
-    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out LifeController player))
@@ -43,12 +37,31 @@ public class EnemyController : MonoBehaviour
             Debug.Log("attack");
 
             Attack(player);
-            Recycle();
+            if(this.TryGetComponent(out EnemyCaller enemyCaller))
+            {
+                enemyCaller.Recycle();
+            }
         }
         else if (other.CompareTag("Wall"))
         {
-            Recycle();
+            if (this.TryGetComponent(out EnemyCaller enemyCaller))
+            {
+                enemyCaller.Recycle();
+            }
         }
-
+        else if (other.CompareTag("PowerSparkles"))
+        {
+            if (this.TryGetComponent(out EnemyCaller enemyCaller))
+            {
+                effect.Play();
+                var timer
+                enemyCaller.Recycle();
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
+            
+        }
     }
 }
