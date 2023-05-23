@@ -24,6 +24,12 @@ public class WinandLose : MonoBehaviour
     void Update()
     {
         PauseMenu();
+        
+        if (GameManager.Instance.gameStates == GameStates.GameOver)
+        {
+            loseScreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 
     void PauseMenu()
@@ -34,13 +40,12 @@ public class WinandLose : MonoBehaviour
             pauseMenu.SetActive(true);
         }
     }
+        
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            loseScreen.SetActive(true);
-            Time.timeScale = 0f;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("WinObject"))
