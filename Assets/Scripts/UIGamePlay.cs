@@ -55,7 +55,7 @@ public class UIGamePlay : MonoBehaviour
     }
     void DisableElement(int idx)
     {
-        var element = idx - 1;
+        var element = idx;
         isElementActive[element] = false;
         lifeElements[element].gameObject.SetActive(false);
         /*

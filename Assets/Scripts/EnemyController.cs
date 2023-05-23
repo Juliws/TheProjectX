@@ -13,9 +13,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     ParticleSystem effect;
     public AudioSource effectSound;
-
     void Start()
     {
+        effect.gameObject.SetActive(false);
+
     }
     void Attack(LifeController lifeController)
     {
@@ -53,8 +54,7 @@ public class EnemyController : MonoBehaviour
         {
             if (this.TryGetComponent(out EnemyCaller enemyCaller))
             {
-                effect.Play();
-                enemyCaller.Recycle();
+                StartCoroutine(OnShot(enemyCaller));
             }
             else
             {
@@ -62,5 +62,12 @@ public class EnemyController : MonoBehaviour
             }
             
         }
+    }
+    IEnumerator OnShot(EnemyCaller enemyCaller)
+    {
+        effect.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        enemyCaller.Recycle();
+
     }
 }
