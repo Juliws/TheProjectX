@@ -4010,7 +4010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8061e6b1d0d14a94e969157b27d03d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wonObject: {fileID: 0}
+  wonObject: {fileID: 222473989}
   wonScreen: {fileID: 1324368708}
   loseScreen: {fileID: 428537166}
   pauseMenu: {fileID: 1791536789}
