@@ -7,15 +7,15 @@ using TMPro;
 public class UIGamePlay : MonoBehaviour
 {
     [SerializeField]
-    Transform lifeElementsSource;
-    List<Transform> lifeElements = new List<Transform>();
+    GameObject lifeElementsSource;
+    List<RectTransform> lifeElements = new List<RectTransform>();
     List<bool> isElementActive = new List<bool>();
     void Start()
     {
-        var elements = lifeElementsSource.GetComponentsInChildren<Transform>();
+        var elements = lifeElementsSource.GetComponentsInChildren<RectTransform>();
         for (int i = 0; i < elements.Length; i++)
         {
-            lifeElements.Add(elements[i]);
+            lifeElements.Add(elements[i].GetComponent<RectTransform>());
             isElementActive.Add(true);
         }
         Debug.Log(lifeElements.Count + "elements");

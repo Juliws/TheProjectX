@@ -54,7 +54,6 @@ public class EnemyController : MonoBehaviour
             if (this.TryGetComponent(out EnemyCaller enemyCaller))
             {
                 effect.Play();
-                var timer
                 enemyCaller.Recycle();
             }
             else
