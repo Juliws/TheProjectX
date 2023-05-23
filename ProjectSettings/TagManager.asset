@@ -12,6 +12,7 @@ TagManager:
   - Roof
   - WinObject
   - Enemy
+  - PowerSparkles
   layers:
   - Default
   - TransparentFX

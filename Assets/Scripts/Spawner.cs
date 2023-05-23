@@ -31,7 +31,9 @@ public class Spawner<T> where T : Component
         {
             Spawn();
             timer = 0;
+
         }
+
     }
     public void Spawn()
     {
@@ -47,6 +49,7 @@ public class Spawner<T> where T : Component
             newItem.transform.position = owner.transform.position;
         }
         owner.OnItemActivated(pool, newItem);
+
     }
 
 }
