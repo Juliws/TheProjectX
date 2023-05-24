@@ -8,6 +8,7 @@ public class WinandLose : MonoBehaviour
     [SerializeField] private GameObject wonObject;
     [SerializeField] private GameObject wonScreen;
 
+    [Header("Lose Logic")]
     [SerializeField] private GameObject loseScreen;
 
     [Header("Pause Logic")]
@@ -28,7 +29,6 @@ public class WinandLose : MonoBehaviour
         if (GameManager.Instance.gameStates == GameStates.GameOver)
         {
             loseScreen.SetActive(true);
-            Time.timeScale = 0f;
         }
     }
 
@@ -44,10 +44,6 @@ public class WinandLose : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(collision.gameObject);
-        }
         if (collision.gameObject.CompareTag("WinObject"))
         {
             wonScreen.SetActive(true);
