@@ -34,4 +34,14 @@ public class PoweController : MonoBehaviour
         pool.Recycling(this);
         this.gameObject.SetActive(false);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.TryGetComponent(out EnemyController enemyController))
+        {
+            Recycling();
+
+        }
+
+    }
 }
