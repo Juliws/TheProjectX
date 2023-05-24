@@ -9,13 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: ba9ca8b1c5cc2d24ea82ec5c99dfcab0
   - enabled: 1
-<<<<<<< Updated upstream
     path: Assets/Scenes/Cinematic.unity
     guid: de7f58a8740cb3d4a86628331bfbc167
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
-=======
     path: Assets/Scenes/Level2.unity
->>>>>>> Stashed changes
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

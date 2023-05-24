@@ -56,3 +56,4 @@ MonoBehaviour:
     randomPos: 1
     randomPosRange: 1
   player: {fileID: 0}
+  powerPrefabSpot: {fileID: 0}
