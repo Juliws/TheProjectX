@@ -49,6 +49,10 @@ public class EnemyController : MonoBehaviour
             {
                 enemyCaller.Recycle();
             }
+            else
+            {
+                Recycle();
+            }
         }
         else if (other.CompareTag("PowerSparkles"))
         {
@@ -62,6 +66,10 @@ public class EnemyController : MonoBehaviour
             }
             
         }
+    }
+    void Recycle()
+    {
+        gameObject.SetActive(false);
     }
     IEnumerator OnShot(EnemyCaller enemyCaller)
     {

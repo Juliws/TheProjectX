@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         TryGetComponent(out uIGamePlay);
+        gameStates = GameStates.GameStart;
     }
     public void OnLifeChange(bool lostLife, int life)
     {
