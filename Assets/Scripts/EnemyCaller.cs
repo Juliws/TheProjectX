@@ -16,17 +16,6 @@ public class EnemyCaller : MonoBehaviour
         enemyController.effectSound.PlayOneShot(enemyController.effectSound.clip);
 
     }
-    void Start()
-    {
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Recycle()
     {
         pool.Recycling(this);
