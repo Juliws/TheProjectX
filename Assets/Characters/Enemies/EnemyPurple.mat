@@ -42,12 +42,12 @@ Material:
     - _Fresnel_Power: 7.81
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ScaleParticle: 20
-    - _Speed_Ghost_Texture: 10
+    - _ScaleParticle: 15.74
+    - _Speed_Ghost_Texture: 3.36
     m_Colors:
     - _Base_Color: {r: 0.10148929, g: 0.004405481, b: 0.103773594, a: 0}
     - _EnemyColor: {r: 0.6415094, g: 0.033285867, b: 0.6415094, a: 0}
-    - _EnemyColorEye: {r: 0.95237195, g: 1, b: 0, a: 0}
+    - _EnemyColorEye: {r: 0.048508644, g: 1, b: 0, a: 0}
     - _FresnelColor: {r: 0.486228, g: 0, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6563146982190054082
