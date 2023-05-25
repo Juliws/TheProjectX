@@ -42,6 +42,10 @@ public class EnemyController : MonoBehaviour
             {
                 enemyCaller.Recycle();
             }
+            else
+            {
+                Recycle();
+            }
         }
         else if (other.CompareTag("Ground"))
         {
@@ -49,10 +53,7 @@ public class EnemyController : MonoBehaviour
             {
                 enemyCaller.Recycle();
             }
-            else
-            {
-                Recycle();
-            }
+
         }
         else if (other.CompareTag("PowerSparkles"))
         {
