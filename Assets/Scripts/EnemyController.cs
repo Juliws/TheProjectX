@@ -60,7 +60,7 @@ public class EnemyController : MonoBehaviour
     IEnumerator OnShot()
     {
         effect.gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.5f);
         if (this.TryGetComponent(out EnemyCaller enemyCaller))
         {
             enemyCaller.Recycle();
