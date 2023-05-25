@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
                 enemyCaller.Recycle();
             }
         }
-        else if (other.CompareTag("Wall"))
+        else if (other.CompareTag("Ground"))
         {
             if (this.TryGetComponent(out EnemyCaller enemyCaller))
             {
