@@ -21,6 +21,7 @@ public class EnemySpawner : MonoBehaviour, ISpawners<EnemyCaller>
     {
         item.Init(pool);
         item.gameObject.SetActive(true);
+
     }
 
 }

@@ -10,13 +10,17 @@ public class EnemyController : MonoBehaviour
     int damageAmount;
     [SerializeField]
     bool imABullet;
+    public Collider mycollider;
     [SerializeField]
     ParticleSystem effect;
     public AudioSource effectSound;
+
     void Start()
     {
         effect.gameObject.SetActive(false);
-
+        TryGetComponent(out mycollider);
+        if (!mycollider.enabled) mycollider.enabled = mycollider.enabled;
+        
     }
     void Attack(LifeController lifeController)
     {
@@ -35,48 +39,35 @@ public class EnemyController : MonoBehaviour
     {
         if (other.TryGetComponent(out LifeController player))
         {
-            Debug.Log("attack");
-
+            mycollider.enabled = !mycollider.enabled;
             Attack(player);
-            if(this.TryGetComponent(out EnemyCaller enemyCaller))
-            {
-                enemyCaller.Recycle();
-            }
-            else
-            {
-                Recycle();
-            }
+            StartCoroutine(OnShot());
+            
         }
         else if (other.CompareTag("Ground"))
         {
-            if (this.TryGetComponent(out EnemyCaller enemyCaller))
-            {
-                enemyCaller.Recycle();
-            }
 
         }
         else if (other.CompareTag("PowerSparkles"))
         {
-            if (this.TryGetComponent(out EnemyCaller enemyCaller))
-            {
-                StartCoroutine(OnShot(enemyCaller));
-            }
-            else
-            {
-                gameObject.SetActive(false);
-            }
-            
+            StartCoroutine(OnShot());
         }
     }
     void Recycle()
     {
         gameObject.SetActive(false);
     }
-    IEnumerator OnShot(EnemyCaller enemyCaller)
+    IEnumerator OnShot()
     {
         effect.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.1f);
-        enemyCaller.Recycle();
-
+        if (this.TryGetComponent(out EnemyCaller enemyCaller))
+        {
+            enemyCaller.Recycle();
+        }
+        else
+        {
+            Recycle();
+        }
     }
 }
