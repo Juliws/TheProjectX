@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public LifeController player;
     public GameStates gameStates;
     public UIGamePlay uIGamePlay;
+
     private void Awake()
     {
         if (instance != null)
