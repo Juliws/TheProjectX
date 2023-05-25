@@ -20,7 +20,7 @@ public class EnemyCaller : MonoBehaviour
     {
         pool.Recycling(this);
         gameObject.SetActive(false);
-        enemyController.mycollider.enabled = enemyController.mycollider.enabled;
+        enemyController.mycollider.enabled = true;
         transform.position = initialPos;
     }
 }

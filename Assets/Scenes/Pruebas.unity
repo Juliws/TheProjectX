@@ -14434,6 +14434,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1986737880 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 446289767774053434, guid: 3801ede94942b3f4b9232fa79992d0fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2140543034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2025824190
 GameObject:
   m_ObjectHideFlags: 0
@@ -15141,6 +15147,11 @@ PrefabInstance:
       propertyPath: waypointSource
       value: 
       objectReference: {fileID: 1228487591}
+    - target: {fileID: 3434209317026516370, guid: 3801ede94942b3f4b9232fa79992d0fc,
+        type: 3}
+      propertyPath: physicalEnemy
+      value: 
+      objectReference: {fileID: 1986737880}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3801ede94942b3f4b9232fa79992d0fc, type: 3}
 --- !u!4 &543450652782947815 stripped
