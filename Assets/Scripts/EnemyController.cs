@@ -42,15 +42,17 @@ public class EnemyController : MonoBehaviour
             mycollider.enabled = !mycollider.enabled;
             Attack(player);
             StartCoroutine(OnShot());
-            
+            effect.Play();
         }
         else if (other.CompareTag("Ground"))
         {
-
+            effect.Play();
+            Recycle();
         }
         else if (other.CompareTag("PowerSparkles"))
         {
             StartCoroutine(OnShot());
+            effect.Play();
         }
     }
     void Recycle()
@@ -60,7 +62,7 @@ public class EnemyController : MonoBehaviour
     IEnumerator OnShot()
     {
         effect.gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         if (this.TryGetComponent(out EnemyCaller enemyCaller))
         {
             enemyCaller.Recycle();
