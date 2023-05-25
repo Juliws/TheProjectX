@@ -49,5 +49,11 @@ public class WinandLose : MonoBehaviour
             wonScreen.SetActive(true);
             Time.timeScale = 0f;
         }
+
+        if (collision.gameObject.CompareTag("Falling"))
+        {
+            loseScreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 }
