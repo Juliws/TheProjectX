@@ -113,10 +113,10 @@ public class MoverPersonaje : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         enElSuelo = true;
-    }
+    }*/
 
     /*private void OnCollisionExit(Collision collision) // Metodo para detectar que al no colisionar con el piso de como resultado a que este en el aire
     {

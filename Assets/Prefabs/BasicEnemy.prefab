@@ -149,6 +149,7 @@ MonoBehaviour:
   attackSpeed: 10
   damageAmount: 1
   imABullet: 1
+  mycollider: {fileID: 7698114831306550659}
   effect: {fileID: 3212052449678459303}
   effectSound: {fileID: 7282673047977874923}
 --- !u!135 &7698114831306550659
