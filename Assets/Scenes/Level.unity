@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.29605734, g: 0.2966433, b: 0.4106682, a: 1}
+  m_IndirectSpecularColor: {r: 0.07204759, g: 0.07104914, b: 0.13900419, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3191,6 +3191,11 @@ PrefabInstance:
       propertyPath: puntaje
       value: 
       objectReference: {fileID: 873523631}
+    - target: {fileID: 3900365808188409773, guid: 1c3adab07849efa418cb72a87d2074d5,
+        type: 3}
+      propertyPath: pauseBtn
+      value: 
+      objectReference: {fileID: 1844561996}
     - target: {fileID: 3900365808832335427, guid: 1c3adab07849efa418cb72a87d2074d5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4134,6 +4139,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1844561996}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &290708266
 MonoBehaviour:
@@ -5847,6 +5864,11 @@ PrefabInstance:
       propertyPath: puntaje
       value: 
       objectReference: {fileID: 873523631}
+    - target: {fileID: 1440326906945139982, guid: 2c1f6cfcfbfee0847a12e15149165a1f,
+        type: 3}
+      propertyPath: pauseBtn
+      value: 
+      objectReference: {fileID: 1844561996}
     - target: {fileID: 1440326906945139986, guid: 2c1f6cfcfbfee0847a12e15149165a1f,
         type: 3}
       propertyPath: m_RootOrder
@@ -6512,6 +6534,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1844561996}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &457384875
 MonoBehaviour:
@@ -7966,6 +8000,11 @@ PrefabInstance:
       propertyPath: puntaje
       value: 
       objectReference: {fileID: 873523631}
+    - target: {fileID: 7903226608214663718, guid: 94bfd5293e5132548bd0ff9bb0f1234c,
+        type: 3}
+      propertyPath: pauseBtn
+      value: 
+      objectReference: {fileID: 1844561996}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94bfd5293e5132548bd0ff9bb0f1234c, type: 3}
 --- !u!1 &530486340
@@ -26087,6 +26126,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1844561996}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1785941148
 MonoBehaviour:

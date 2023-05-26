@@ -8,6 +8,7 @@ public class CollectablePowerUp : MonoBehaviour
     [SerializeField] private int cantidad;
     [SerializeField] private Score puntaje;
     [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject pauseBtn;
     [SerializeField] private ParticleSystem particle;
 
     private void Start()
@@ -20,6 +21,7 @@ public class CollectablePowerUp : MonoBehaviour
         {
             puntaje.sumarPuntos(cantidad);
             SoundsControl.Instance.Playsound(sonidopunto);
+            pauseBtn.SetActive(false);
             Destroy(gameObject,0.4f);
             panel.SetActive(true);
             Time.timeScale = 0;
