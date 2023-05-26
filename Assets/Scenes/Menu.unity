@@ -4660,12 +4660,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "3. En el nivel, encontrar\xE1s enemigos que representan los sentimientos
-    y miedos que una mujer enfrenta durante su desarrollo femenino. Ev\xEDtalos o
-    derr\xF3talos para no perder puntos de confianza.\r\n\r\n4. Recolecta todos puntos
-    que encontrar\xE1s dispersos a lo largo del nivel, \r\n\r\n5. Llega a la cima
-    del abismo y obt\xE9n el \xFAltimo y m\xE1s grande power app, el punto de confianza
-    dorado y as\xED lograr romper el hechizo de la bruja.\r\n"
+  m_text: "3. En el nivel, encontrar\xE1s enemigos y obstaculos que representan los
+    sentimientos y miedos que una mujer enfrenta durante su desarrollo femenino.
+    Ev\xEDtalos o derr\xF3talos para no perder puntos de confianza.\r\n\r\n4. Recolecta
+    estrellas y los puntos que encontrar\xE1s dispersos a lo largo del nivel.\r\n\r\n5.
+    Llega a la cima del abismo y obt\xE9n el \xFAltimo y m\xE1s grande powerup, el
+    punto de confianza dorado y as\xED lograr romper el hechizo de la bruja.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dffb2a6cb4f76a5438e5227c6fc71992, type: 2}
   m_sharedMaterial: {fileID: -2348916379572278787, guid: dffb2a6cb4f76a5438e5227c6fc71992,
@@ -5020,7 +5020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1317898780
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7490,8 +7490,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "1. Explora la cueva y gu\xEDa a Sofia hacia la cima del abismo. Utiliza
     las teclas de direcci\xF3n izquierda y derecha para dirigirla a lo largo del
-    camino.\r\n\n2.Para saltar y adquirir otro tipo de habilidades debes encontrar
-    y recolectar los Power Apps dispersos en el nivel. As\xED podr\xE1s superar desaf\xEDos
+    camino.\r\n\n2. Para saltar y adquirir otro tipo de habilidades debes encontrar
+    y recolectar los PowerUps dispersos en el nivel. As\xED podr\xE1s superar desaf\xEDos
     y avanzar en el juego.\r\n\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dffb2a6cb4f76a5438e5227c6fc71992, type: 2}
