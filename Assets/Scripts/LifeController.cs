@@ -7,8 +7,6 @@ public class LifeController : MonoBehaviour
     [SerializeField]
     int initialLife;
     public int life;
-    [SerializeField] private AudioSource sound;
-    [SerializeField] private AudioClip auch;
 
     void Start()
     {

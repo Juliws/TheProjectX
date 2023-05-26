@@ -16,11 +16,14 @@ public class MoverPersonaje : MonoBehaviour
     [SerializeField] public Transform giroCharacterTeen;
     [SerializeField] private Quaternion giroAtras;
     [SerializeField] private Quaternion giroFrente;
+    [SerializeField] private AudioSource sound;
+    [SerializeField] private AudioClip auch;
 
     [Header("Salto")]
     [SerializeField] private float jumpForce = 15.0f;
     [SerializeField] private GameObject checkGround;
     [SerializeField] private bool enElSuelo;
+    [SerializeField] private AudioClip jumpSound;
 
     [Header("Agachado")]
     [SerializeField] private Collider colliderAgachado;
@@ -40,6 +43,7 @@ public class MoverPersonaje : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         playerRb = GetComponent<Rigidbody>();
         powerSpawner = GetComponentInChildren<PowerSpawner>();
+        sound = GetComponentInChildren<AudioSource>();
     }
 
     void Update()
@@ -151,6 +155,10 @@ public class MoverPersonaje : MonoBehaviour
             Debug.Log("Puedes Atacar");
             Destroy(other.gameObject);
         }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            sound.PlayOneShot(auch);
+        }
     }
 
     private void OnTriggerExit(Collider other) //Metodo para corroborar que el personaje esta tocando el suelo
@@ -170,6 +178,7 @@ public class MoverPersonaje : MonoBehaviour
             enElSuelo = false;
             anim.SetTrigger("Jump");
             teenAnim.SetTrigger("Jump");
+            sound.PlayOneShot(jumpSound);
         }
     }
 
