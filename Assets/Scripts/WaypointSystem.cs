@@ -39,7 +39,7 @@ public class WaypointSystem : MonoBehaviour
     {
         
         var target = currentWaypoint.position;
-        Debug.Log(currentWaypoint);
+        //Debug.Log(currentWaypoint);
         target.y = transform.position.y;
         transform.LookAt(target);
         this.transform.position = Vector3.SmoothDamp(transform.position, target, ref currentVelocity, speed);
@@ -54,7 +54,7 @@ public class WaypointSystem : MonoBehaviour
         {
             currentInx = 0;
         }
-        Debug.Log(currentInx);
+        //Debug.Log(currentInx);
         currentWaypoint = waypoints[currentInx];
 
     }
