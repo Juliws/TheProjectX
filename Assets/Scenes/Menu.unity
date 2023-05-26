@@ -615,7 +615,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 87704743}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1361574089}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &87704743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1240,7 +1252,7 @@ GameObject:
   - component: {fileID: 172358072}
   - component: {fileID: 172358071}
   m_Layer: 5
-  m_Name: Link
+  m_Name: nombreIma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1286,7 +1298,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: https://www.freepik.es/foto-gratis/certificado-grunge-marco-ornamental-vintage_6732532.htm
+  m_text: 'Nombre Imagen: Marco ornamental vintage'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a573fe369eef814fb9f9ff534aae844, type: 2}
   m_sharedMaterial: {fileID: -8709718544979869372, guid: 1a573fe369eef814fb9f9ff534aae844,
@@ -1556,7 +1568,7 @@ GameObject:
   - component: {fileID: 424312868}
   - component: {fileID: 424312867}
   m_Layer: 5
-  m_Name: nombre
+  m_Name: autor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1602,8 +1614,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Imagen- Espeluznante castillo sobre roca por la noche, palacio g\xF3tico
-    embrujado en las monta\xF1as, edificio con techos de torre"
+  m_text: 'Autor: Upklyak'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dffb2a6cb4f76a5438e5227c6fc71992, type: 2}
   m_sharedMaterial: {fileID: -2348916379572278787, guid: dffb2a6cb4f76a5438e5227c6fc71992,
@@ -1693,7 +1704,7 @@ GameObject:
   - component: {fileID: 453861880}
   - component: {fileID: 453861879}
   m_Layer: 5
-  m_Name: nombre
+  m_Name: autor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1739,7 +1750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Imagen - Certificado grunge con marco ornamental vintage
+  m_text: kjpargeter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dffb2a6cb4f76a5438e5227c6fc71992, type: 2}
   m_sharedMaterial: {fileID: -2348916379572278787, guid: dffb2a6cb4f76a5438e5227c6fc71992,
@@ -4052,7 +4063,7 @@ GameObject:
   - component: {fileID: 1239089227}
   - component: {fileID: 1239089226}
   m_Layer: 5
-  m_Name: Link
+  m_Name: nomIma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4075,7 +4086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -94}
+  m_AnchoredPosition: {x: 0, y: -53}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1239089226
@@ -4098,7 +4109,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: https://www.freepik.es/vector-gratis/espeluznante-castillo-sobre-roca-noche-palacio-gotico-embrujado-montanas-edificio-techos-torre-puntiagudos-ventanas-brillantes-murcielagos-volando-cielo-oscuro-casa-dracula-fantasia-ilustracion-vectorial-dibujos-animados_12120255.htm
+  m_text: 'Nombre Imagen: Castillo sobre roca por la noche'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a573fe369eef814fb9f9ff534aae844, type: 2}
   m_sharedMaterial: {fileID: -8709718544979869372, guid: 1a573fe369eef814fb9f9ff534aae844,
@@ -4162,7 +4173,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -989.7206, w: 0}
+  m_margin: {x: 0, y: 0, z: -918.33716, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4400,7 +4411,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1252123049}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 645719026}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1252123049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5644,7 +5667,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1650500645}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1836891922}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1650500645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6165,7 +6200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -430.9999, y: -74}
+  m_AnchoredPosition: {x: -430.9999, y: -96}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1836891922
@@ -7294,6 +7329,10 @@ PrefabInstance:
     - target: {fileID: 5943829626733491, guid: 51f4939fc8ab3e84ab4e5f8ba08dd59a, type: 3}
       propertyPath: m_Name
       value: MenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943829626733491, guid: 51f4939fc8ab3e84ab4e5f8ba08dd59a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5943829626733492, guid: 51f4939fc8ab3e84ab4e5f8ba08dd59a, type: 3}
       propertyPath: m_Camera
