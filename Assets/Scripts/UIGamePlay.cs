@@ -18,7 +18,7 @@ public class UIGamePlay : MonoBehaviour
             lifeElements.Add(elements[i].GetComponent<RectTransform>());
             isElementActive.Add(true);
         }
-        Debug.Log(lifeElements.Count + "elements");
+        //Debug.Log(lifeElements.Count + "elements");
     }
 
     // Update is called once per frame

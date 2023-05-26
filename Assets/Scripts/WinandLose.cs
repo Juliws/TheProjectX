@@ -13,32 +13,56 @@ public class WinandLose : MonoBehaviour
 
     [Header("Pause Logic")]
     [SerializeField] private GameObject pauseMenu;
-
+    [SerializeField] private GameObject pauseBtn;
+    [SerializeField] private AudioSource sound;
+    [SerializeField] private AudioClip back;
+    [SerializeField] private bool pauseGame= false;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        pauseBtn.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        PauseMenu();
-        
         if (GameManager.Instance.gameStates == GameStates.GameOver)
         {
             loseScreen.SetActive(true);
+            pauseBtn.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseGame = !pauseGame;
+            if (!pauseGame)
+            {
+                Continue();
+            }
+            else
+            {
+                PauseMenu();
+            }
         }
     }
 
     void PauseMenu()
     {
-        if(Input.GetKey(KeyCode.Escape))
-        {
-            Time.timeScale = 0f;
-            pauseMenu.SetActive(true);
-        }
+        pauseGame = true;
+        sound.PlayOneShot(back);
+        Time.timeScale = 0f;
+        pauseMenu.SetActive(true);
+        pauseBtn.SetActive(false);
+    }
+
+    void Continue()
+    {
+        pauseGame = false;
+        sound.PlayOneShot(back);
+        Time.timeScale = 1.0f;
+        pauseMenu.SetActive(false);
+        pauseBtn.SetActive(true);
     }
         
 
@@ -47,12 +71,14 @@ public class WinandLose : MonoBehaviour
         if (collision.gameObject.CompareTag("WinObject"))
         {
             wonScreen.SetActive(true);
+            pauseBtn.SetActive(false);
             Time.timeScale = 0f;
         }
 
         if (collision.gameObject.CompareTag("Falling"))
         {
             loseScreen.SetActive(true);
+            pauseBtn.SetActive(false);
             Time.timeScale = 0f;
         }
     }
