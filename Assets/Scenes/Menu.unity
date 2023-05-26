@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 172358072}
   - component: {fileID: 172358071}
   m_Layer: 5
-  m_Name: Link
+  m_Name: nombreImagen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1334,7 +1334,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: https://www.freepik.es/foto-gratis/certificado-grunge-marco-ornamental-vintage_6732532.htm
+  m_text: 'Nombre Imagen: Marco Ornamental vintage'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a573fe369eef814fb9f9ff534aae844, type: 2}
   m_sharedMaterial: {fileID: -8709718544979869372, guid: 1a573fe369eef814fb9f9ff534aae844,
@@ -1604,7 +1604,7 @@ GameObject:
   - component: {fileID: 424312868}
   - component: {fileID: 424312867}
   m_Layer: 5
-  m_Name: nombre
+  m_Name: nombreAutor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1650,8 +1650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Imagen- Espeluznante castillo sobre roca por la noche, palacio g\xF3tico
-    embrujado en las monta\xF1as, edificio con techos de torre"
+  m_text: 'Nombre Autor: upklyak'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dffb2a6cb4f76a5438e5227c6fc71992, type: 2}
   m_sharedMaterial: {fileID: -2348916379572278787, guid: dffb2a6cb4f76a5438e5227c6fc71992,
@@ -1741,7 +1740,7 @@ GameObject:
   - component: {fileID: 453861880}
   - component: {fileID: 453861879}
   m_Layer: 5
-  m_Name: nombre
+  m_Name: nombreAutor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1787,7 +1786,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Imagen - Certificado grunge con marco ornamental vintage
+  m_text: 'Nombre Autor: kjpargeter'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dffb2a6cb4f76a5438e5227c6fc71992, type: 2}
   m_sharedMaterial: {fileID: -2348916379572278787, guid: dffb2a6cb4f76a5438e5227c6fc71992,
@@ -4275,7 +4274,7 @@ GameObject:
   - component: {fileID: 1239089227}
   - component: {fileID: 1239089226}
   m_Layer: 5
-  m_Name: Link
+  m_Name: nomImagen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4298,7 +4297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -94}
+  m_AnchoredPosition: {x: 0, y: -54}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1239089226
@@ -4321,7 +4320,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: https://www.freepik.es/vector-gratis/espeluznante-castillo-sobre-roca-noche-palacio-gotico-embrujado-montanas-edificio-techos-torre-puntiagudos-ventanas-brillantes-murcielagos-volando-cielo-oscuro-casa-dracula-fantasia-ilustracion-vectorial-dibujos-animados_12120255.htm
+  m_text: 'Nombre Imagen: Castillo sobre roca por la noche, placio gotico- castillo
+    medieval'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a573fe369eef814fb9f9ff534aae844, type: 2}
   m_sharedMaterial: {fileID: -8709718544979869372, guid: 1a573fe369eef814fb9f9ff534aae844,
@@ -4727,7 +4727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1317898780
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5052,7 +5052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1361574090
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5438,7 +5438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -431, y: 232}
+  m_AnchoredPosition: {x: -431, y: 180}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1511365815
@@ -6484,7 +6484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -430.9999, y: 46}
+  m_AnchoredPosition: {x: -430.9999, y: 12.000111}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1836891922
@@ -6586,7 +6586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1856507183
 RectTransform:
   m_ObjectHideFlags: 0
