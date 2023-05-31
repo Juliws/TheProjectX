@@ -117,19 +117,9 @@ public class MoverPersonaje : MonoBehaviour
         }
     }
 
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        enElSuelo = true;
-    }*/
-
-    /*private void OnCollisionExit(Collision collision) // Metodo para detectar que al no colisionar con el piso de como resultado a que este en el aire
-    {
-        enelSuelo = false;
-        anim.SetBool("OnAir", true);
-    }*/
-
     private void OnTriggerEnter(Collider other) // Metodo que determina despues de tomar el power up para cambiar el estado a verdadero
     {
+        
         if (other.gameObject.CompareTag("Ground"))
         {
             enElSuelo = true;
@@ -172,7 +162,7 @@ public class MoverPersonaje : MonoBehaviour
     }
     public void Jump() // Metodo de salto
     {
-        if (Input.GetKey(KeyCode.Space) && enElSuelo)
+        if (Input.GetKey(KeyCode.Space) && enElSuelo && agachado==false)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             enElSuelo = false;
@@ -195,18 +185,9 @@ public class MoverPersonaje : MonoBehaviour
             colliderDePie.enabled = false;
             Debug.Log("Agachado");
         }
-        else if (estaAgachado == true)
-        {
-            agachado = true;
-            colliderAgachado.enabled = true;
-            anim.SetBool("Crouch", true);
-            teenAnim.SetBool("Crouch", true);
-            colliderDePie.enabled = false;
-            Debug.Log("AG");
-        }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
-            estaAgachado = false;
+            //estaAgachado = false;
             agachado = false;
             colliderAgachado.enabled = false;
             colliderDePie.enabled = true;

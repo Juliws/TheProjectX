@@ -35,6 +35,7 @@ public class WinandLose : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            sound.PlayOneShot(back);
             pauseGame = !pauseGame;
             if (!pauseGame)
             {
@@ -50,7 +51,6 @@ public class WinandLose : MonoBehaviour
     void PauseMenu()
     {
         pauseGame = true;
-        sound.PlayOneShot(back);
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         pauseBtn.SetActive(false);
@@ -59,7 +59,6 @@ public class WinandLose : MonoBehaviour
     void Continue()
     {
         pauseGame = false;
-        sound.PlayOneShot(back);
         Time.timeScale = 1.0f;
         pauseMenu.SetActive(false);
         pauseBtn.SetActive(true);
