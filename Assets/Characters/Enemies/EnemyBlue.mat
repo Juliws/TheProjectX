@@ -10,6 +10,8 @@ Material:
   m_Name: EnemyBlue
   m_Shader: {fileID: -6465566751694194690, guid: 076c9f789f24abf499fec3dae9f07e63,
     type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -17,7 +19,9 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -49,6 +53,7 @@ Material:
     - _EnemyColorEye: {r: 0.10484158, g: 0.7169812, b: 0.17641221, a: 0}
     - _FresnelColor: {r: 0.0023498535, g: 0, b: 1, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &2629215673288326007
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -61,4 +66,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 5
+  version: 9
